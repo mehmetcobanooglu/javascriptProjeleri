@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700&display=swap');
+
+:root {
+    --line-border-fill: #ff4d6d;
+    --line-border-empty: #dee2e6;
+}
+
+* {
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin:0px;
+    overflow: hidden; /*taşmayi gösterme*/
+}
+.container{
+    text-align: center;
+}
+.progress-container{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 30px;
+    width: 350px;
+    max-width: 100%;
+}
+
+.progress-container::before{
+    content: '';
+    background-color: var(--line-border-empty);
+    height: 4px;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index:-1;
+    transform: 0.4s ease;
+}
+.progress{
+    background-color: var(--line-border-fill);
+    height:4px;
+    width: 0%;
+    position: absolute;
+    top: 50%;
+    left:0;
+    transform: translateY(-50%);
+    z-index:-1;
+    transition: width 0.4s ease;
+}
+.circle{
+    background-color: #fff;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    border:1px solid var(--line-border-empty);
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.4s ease, border-color 0.4s ease;
+}
+.circle.active{
+    border-color: var(--line-border-fill);
+
+}
+.btn{
+    background-color: var(--line-border-fill);
+    color: #fff;
+    border: 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    padding: 8px 24px;
+    font-size:14px;
+    margin:10px;
+}
+.btn:active{
+ transform: scale(0.95);
+}
+.btn:focus{
+    outline: none;
+}
+.btn:disabled{
+    background-color: var(--line-border-empty);
+}
